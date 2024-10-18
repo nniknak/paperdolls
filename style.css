@@ -3,7 +3,7 @@
     margin:auto;
     width: 650px;
     height:480px;
-   background-color: white;
+    background-color: white;
 }
 
 #background{
@@ -13,8 +13,15 @@
     left:100px;
     right: 100px;
     top:50px;
-    background-color: burlywood;
-    background-image: url("../img/resized_background.png");
+    background: url("body.png");
+}
+
+#dress{
+    position:absolute;
+    width:450px;
+    height: 380px; 
+    background: url("body.png") repeat 0 0;
+    display: block;
 }
 
 #hat{
@@ -28,16 +35,9 @@
     position:absolute;
     width:450px;
     height: 380px;
-    background-image: url("../paperdolls/img/body.png");
-
+    background-image: url('body.png');
 }
 
-#dress{
-    position:absolute;
-    width:450px;
-    height: 380px; 
-    background-image: url("img\body.png");
-}
 
 .dress1{
     position:absolute;

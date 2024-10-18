@@ -2,13 +2,19 @@
    <head> 
        <link rel="stylesheet" type="text/css" href="style.css">
        
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <title> Dress Up Game</title>
     
 <body>
+    <h1>Dress Up Game</h1>
     <div id="container">
         <div id="background">
+            <div id="body"></div>
             <div id="dress"></div>
+            <div id="hat"></div>
         </div>
         
     <input type="button" value="Next Hat" id="nexthat" onclick="nexthat()">
@@ -16,7 +22,6 @@
     <input type="button" value="Next Background" id="nextbackground" onclick="nextbackground()" >
 
     </div>
-
 
     <script src="js/code.js"></script>
     
