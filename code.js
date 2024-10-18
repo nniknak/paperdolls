@@ -1,176 +1,70 @@
+let state = {
+    dress: -1,
+    hat: 0,
+    background: 0,
+  };
 
-window.onload=init;
+  nextDress();
+  nextHat();
+  nextBackground();
 
-function init()
-{
-    console.log("window has loaded");
-    state.i=1;
-    state.j=1;
-    state.k=1;
-    
-}
-
-var state = {
-    i:0,
-    j:0,
-    k:0
-};
-
-function nextDress(){
-    var dress = document.getElementById("dress");
-
-    dress.setAttribute("dress2")
-}
-
-/* function nextdress()
-{
-    console.log("inside function nextdress");
-    console.log(state.i);
-    var dress=document.getElementById("dress");
-
-
-    if(state.i===0){
-    dress.setAttribute("class","dress1");
-        state.i++;
-        console.log(state.i);
+  //function to change dress
+  function nextDress() {
+    let dress = document.querySelector("#dress");
+    //code from the tutorial example:
+    //   if (state.dress === 0) {
+    //     dress.setAttribute("class", "dress1");
+    //     state.dress++;
+    //     console.log(state);
+    //   } else if (state.dress === 1) {
+    //     dress.setAttribute("class", "dress2");
+    //     state.dress++;
+    //     console.log(state);
+    //   } else if (state.dress === 2) {
+    //     dress.setAttribute("class", "dress3");
+    //     //set back to 0
+    //     state.dress = 0;
+    //     console.log(state);
+    //   }
+  
+    //my refactored version with LESS code and MORE scalability:
+    if (state.dress < 40) {
+      state.dress++;
+      dress.setAttribute("class", `dress${state.dress}`);
+    } else if (state.dress === 40) {
+      state.dress = 0;
+      dress.setAttribute("class", `dress${state.dress}`);
     }
-    else
-     if(state.i===1){
-    dress.setAttribute("class","dress2");
-         state.i++;
-         console.log(state.i);
+  }
+  
+  function nextHat() {
+    let shoes = document.querySelector("#shoes");
+    if (state.shoes < 3) {
+      state.shoes++;
+      shoes.setAttribute("class", `shoes${state.shoes}`);
+    } else if (state.shoes === 3) {
+      state.shoes = 0;
+      shoes.setAttribute("class", `shoes${state.shoes}`);
     }
-    else
-     if(state.i===2){
-    dress.setAttribute("class","dress3");
-         state.i=0;
+  }
+  function nexthair() {
+    let hair = document.querySelector("#hair");
+    if (state.hair < 5) {
+      state.hair++;
+      hair.setAttribute("class", `hair${state.hair}`);
+    } else if (state.hair === 5) {
+      state.hair = 0;
+      hair.setAttribute("class", `hair${state.hair}`);
     }
-    
-}
-
-*/
-
-/*
-function nexthat()
-{
-    console.log("inside function nexthat");
-    console.log(state.j);
-    var shoe=document.getElementById("hats");
-    if(state.j===0){
-    shoe.setAttribute("class","shoe1");
-        state.j++;
-        console.log(state.j);
+  }
+  
+  function nextBackground() {
+    let hat = document.querySelector("#hat");
+    if (state.hat < 4) {
+      state.hat++;
+      hat.setAttribute("class", `hat${state.hat}`);
+    } else if (state.hat === 4) {
+      state.hat = 0;
+      hat.setAttribute("class", `hat${state.hat}`);
     }
-    else
-     if(state.j===1){
-    shoe.setAttribute("class","shoe2");
-         state.j++;
-         console.log(state.j);
-    }
-    else
-     if(state.j===2){
-    shoe.setAttribute("class","shoe3");
-         state.j=0;
-    }
-    
-}
-
-function nextbackground()
-{
-    console.log("inside function nextbackground");
-    console.log(state.j);
-    var shoe=document.getElementById("hats");
-    if(state.j===0){
-    shoe.setAttribute("class","shoe1");
-        state.j++;
-        console.log(state.j);
-    }
-    else
-     if(state.j===1){
-    shoe.setAttribute("class","shoe2");
-         state.j++;
-         console.log(state.j);
-    }
-    else
-     if(state.j===2){
-    shoe.setAttribute("class","shoe3");
-         state.j=0;
-    }
-    
-}
-
-function nextbackground()
-{
-    console.log("inside function nextbackground");
-    
-    console.log(state.k);
-    var hairf=document.getElementById("hairfront");
-    var hairb=document.getElementById("hairback");
-    hairb.setAttribute("class","hairback");
-    
-    if(state.k===0){
-    hairf.setAttribute("class","hairfront1");
-        state.k++;
-        console.log(state.k);
-    }
-    else
-     if(state.k===1){
-    hairf.setAttribute("class","hairfront2");
-         state.k++;
-         console.log(state.k);
-    }
-    else
-     if(state.k===2){
-    hairf.setAttribute("class","hairfront3");
-         state.k=0;
-    }
- 
-}
-    function nexthat()
-{
-    console.log("inside function nexthat");
-    console.log(state.j);
-    var shoe=document.getElementById("hats");
-    if(state.j===0){
-    shoe.setAttribute("class","shoe1");
-        state.j++;
-        console.log(state.j);
-    }
-    else
-     if(state.j===1){
-    shoe.setAttribute("class","shoe2");
-         state.j++;
-         console.log(state.j);
-    }
-    else
-     if(state.j===2){
-    shoe.setAttribute("class","shoe3");
-         state.j=0;
-    }
-    
-}
-    function nexthat()
-{
-    console.log("inside function nexthat");
-    console.log(state.j);
-    var shoe=document.getElementById("hats");
-    if(state.j===0){
-    shoe.setAttribute("class","shoe1");
-        state.j++;
-        console.log(state.j);
-    }
-    else
-     if(state.j===1){
-    shoe.setAttribute("class","shoe2");
-         state.j++;
-         console.log(state.j);
-    }
-    else
-     if(state.j===2){
-    shoe.setAttribute("class","shoe3");
-         state.j=0;
-    }
-    
-}
-
-*/
+  }
