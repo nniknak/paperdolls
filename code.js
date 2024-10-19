@@ -7,7 +7,7 @@ function getRandomRgb() {
 }
 
 let state = {
-    dress: -1,
+    dress: 0,
     hat: 0,
     background: 0,
   };
@@ -15,6 +15,7 @@ let state = {
   nextDress();
   nextHat();
   nextBackground();
+  previousDress();
 
   //function to change dress
   function nextDress() {
@@ -36,11 +37,22 @@ let state = {
     //   }
   
     //my refactored version with LESS code and MORE scalability:
-    if (state.dress < 40) {
+    if (state.dress < 39) {
       state.dress++;
       dress.setAttribute("class", `dress${state.dress}`);
-    } else if (state.dress === 40) {
+    } else if (state.dress === 39) {
       state.dress = 0;
+      dress.setAttribute("class", `dress${state.dress}`);
+    }
+  }
+
+  function previousDress() {
+    let dress = document.querySelector("#dress");
+    if (state.dress > 0) {
+      state.dress--;
+      dress.setAttribute("class", `dress${state.dress}`);
+    } else if (state.dress === 0) {
+      state.dress = 39;
       dress.setAttribute("class", `dress${state.dress}`);
     }
   }
