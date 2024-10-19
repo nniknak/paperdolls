@@ -88,6 +88,27 @@ let state = {
     */
   }
 
+  function nextScene() {
+    const fileList = ["backgrounds/admin-building.jpg", "backgrounds/agricultural-building.jpg", "backgrounds/bullmaiden.jpg", "backgrounds/germany-building.jpg", "backgrounds/horse.jpg", "backgrounds/liberalarts.jpg", "backgrounds/machinery-hall-1.jpg", "backgrounds/moose.jpg"]
+    const random = Math.floor(Math.random() * fileList.length)
+    const urlstring = fileList[random];
+    console.log(typeof(urlstring))
+    let bgurl = `url(${urlstring})`;
+    console.log(bgurl);
+    document.getElementById("background").style.backgroundSize = "contain";
+    document.getElementById("background").style.backgroundImage = bgurl;
 
+
+    /* for when there's a set of background images 
+    if (state.hat < 4) {
+      state.hat++;
+      hat.setAttribute("class", `hat${state.hat}`);
+    } else if (state.hat === 4) {
+      state.hat = 0;
+      hat.setAttribute("class", `hat${state.hat}`);
+    }
+  }
+    */
+  }
 
 

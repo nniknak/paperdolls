@@ -30,7 +30,8 @@ input[type=button]{
 
 #background{
     position: absolute;
-    background-color: lightyellow;
+    background-color: lightgrey;
+    background-size: 100% auto;
     width: 450px;
     height: 380px;
     display: block;
