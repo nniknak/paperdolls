@@ -12,11 +12,6 @@ let state = {
     background: 0,
   };
 
-  nextDress();
-  nextHat();
-  nextBackground();
-  previousDress();
-
   //function to change dress
   function nextDress() {
     let dress = document.querySelector("#dress");
