@@ -1,3 +1,11 @@
+function getRandomRgb() {
+  var num = Math.round(0xffffff * Math.random());
+  var r = num >> 16;
+  var g = num >> 8 & 255;
+  var b = num & 255;
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+
 let state = {
     dress: -1,
     hat: 0,
@@ -47,19 +55,14 @@ let state = {
       shoes.setAttribute("class", `shoes${state.shoes}`);
     }
   }
-  function nexthair() {
-    let hair = document.querySelector("#hair");
-    if (state.hair < 5) {
-      state.hair++;
-      hair.setAttribute("class", `hair${state.hair}`);
-    } else if (state.hair === 5) {
-      state.hair = 0;
-      hair.setAttribute("class", `hair${state.hair}`);
-    }
-  }
   
   function nextBackground() {
-    let hat = document.querySelector("#hat");
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    let rgbValue = "#" + randomColor;
+    document.getElementById("background").style.background = rgbValue;
+
+
+    /* for when there's a set of background images 
     if (state.hat < 4) {
       state.hat++;
       hat.setAttribute("class", `hat${state.hat}`);
@@ -68,3 +71,9 @@ let state = {
       hat.setAttribute("class", `hat${state.hat}`);
     }
   }
+    */
+  }
+
+
+
+
