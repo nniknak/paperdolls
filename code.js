@@ -58,14 +58,21 @@ let state = {
   }
   
   function nextHat() {
-    let shoes = document.querySelector("#shoes");
-    if (state.shoes < 3) {
-      state.shoes++;
-      shoes.setAttribute("class", `shoes${state.shoes}`);
-    } else if (state.shoes === 3) {
-      state.shoes = 0;
-      shoes.setAttribute("class", `shoes${state.shoes}`);
+    let hat = document.querySelector("#hat");
+    if (state.hat < 3) {
+      state.hat++;
+      hat.setAttribute("class", `hat${state.hat}`);
+    } else if (state.hat === 3) {
+      state.hat = 0;
+      hat.setAttribute("class", `hat${state.hat}`);
     }
+    // Get the element you want to modify
+    const element = document.getElementById("hat");
+
+    // something here to generate the next filename
+
+    // Change the background image
+    element.style.backgroundImage = "url('new-image.jpg')"; 
   }
   
   function nextBackground() {
