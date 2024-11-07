@@ -12,6 +12,8 @@ let state = {
     background: 0,
   };
 
+  let blankurl = `url(hats/blank.png)`
+
   function nextDress() {
     if (state.dress < 39) {
       state.dress++;
@@ -33,8 +35,41 @@ let state = {
     let dressurl = `url(dresses/doll${state.dress}.png)`
     document.getElementById("dress").style.backgroundImage = dressurl;
   }
+
+  function nextHat() {
+    if (state.hat < 23) {
+      state.hat++;
+      console.log(state.hat);
+    } else if (state.hat === 23) {
+      state.hat = 0;
+    }
+    if (state.hat>0){
+      let haturl = `url(hats/hat${state.hat}.png)`
+      console.log(haturl)
+      document.getElementById("hat").style.backgroundImage = haturl;
+    }
+    else if (state.hat === 0){
+      document.getElementById("hat").style.backgroundImage = blankurl;
+    }
+    console.log(document.getElementById("dress").style.zIndex)
+  }
   
-  //function nextHat() {}
+  function previousHat() {
+    if (state.hat > 0) {
+      state.hat--;
+      console.log(state.hat);
+    } else if (state.hat === 0) {
+      state.hat = 23;
+      console.log(state.hat);
+    }
+    if (state.hat>0){
+      let haturl = `url(hats/hat${state.hat}.png)`
+      document.getElementById("hat").style.backgroundImage = haturl;
+    }
+    else if (state.hat === 0){
+      document.getElementById("hat").style.backgroundImage = blankurl;
+    }
+  }
   
 
 
@@ -55,4 +90,16 @@ let state = {
     document.getElementById("background").style.backgroundImage = bgurl;
   }
 
+  function resetAll(){
+    state.dress = 0;
+    let dressurl = `url(dresses/doll${state.dress}.png)`
+    document.getElementById("dress").style.backgroundImage = dressurl;
+
+    state.hat = 0;
+    document.getElementById("hat").style.backgroundImage = blankurl;
+
+    state.background = 0;
+    document.getElementById("background").style.backgroundImage = blankurl;
+    document.getElementById("background").style.background = lightgrey;  
+  }
 
