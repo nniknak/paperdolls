@@ -42,9 +42,11 @@ input[type=button]{
 #logo{
     background-image:url(logo.png);
     width:auto;
-    height:50px;
+    height:30px;
     margin:auto;
+    display:block;
 }
+
 #sidemenu{
     position: absolute;
     width: 150px;
