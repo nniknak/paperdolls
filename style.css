@@ -40,7 +40,6 @@ input[type=button]{
 }
 
 #logo{
-    background-image:url(logo.png);
     width:auto;
     height:30px;
     margin:auto;
