@@ -54,15 +54,11 @@ input[type="button"]{
 
 #logo{
     width:auto;
-    height:50px;
+    height:45px;
     margin-left:auto;
     margin-right:auto;
-    margin-top:5px;
-    margin-bottom:5px;
-    display:block;
     background-blend-mode: screen;
     background-color:antiquewhite;
-    background-size: 95% auto;
 }
 
 #sidemenu{
