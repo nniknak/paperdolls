@@ -22,13 +22,12 @@ input[type=button]{
 
 .button {
   background-color: #E35336; /* terracotta */
-  border: none;
-  color: white;
+  border: antiquewhite;
+  color: #a2783b; /* vintage gold */
   padding: 5px 10px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   font:"Smythe", system-ui;
   margin:auto;
 }
@@ -50,8 +49,9 @@ input[type=button]{
     width:auto;
     height:50px;
     margin:auto;
-    padding:5%;
+    padding:10px;
     display:block;
+    background-color:antiquewhite;
 }
 
 #sidemenu{
