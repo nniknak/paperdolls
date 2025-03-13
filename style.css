@@ -51,7 +51,9 @@ input[type=button]{
     margin:auto;
     padding:5px;
     display:block;
+    background-blend-mode: screen;
     background-color:antiquewhite;
+    background-size: 100% auto;
 }
 
 #sidemenu{
