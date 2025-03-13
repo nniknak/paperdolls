@@ -25,7 +25,7 @@ input[type=button]{
   font-size: 16px;
 }
 
-#controls{
+.controls{
     position: absolute;
     margin:auto;
     padding-left: 10.5%;
