@@ -43,7 +43,7 @@ input[type=button]{
     position: absolute;
     width: 150px;
     height: 380px;
-    display:block;
+    display:inline-block;
     margin-left:500px;
     margin-top: 50px;
     background-color:none;
