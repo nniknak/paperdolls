@@ -44,6 +44,7 @@ input[type=button]{
     height: 380px;
     display:block;
     margin-left:515px;
+    background-color:blue;
 }
 
 #background{
