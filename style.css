@@ -41,6 +41,8 @@ input[type=button]{
 
 #logo{
     background-image:url(logo.png);
+    width:auto;
+    height:fit-content;
     margin:auto;
 }
 #sidemenu{
