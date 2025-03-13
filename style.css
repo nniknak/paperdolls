@@ -29,6 +29,7 @@ input[type=button]{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font:"Smythe", system-ui;
   margin:auto;
 }
 
@@ -49,7 +50,7 @@ input[type=button]{
     width:auto;
     height:50px;
     margin:auto;
-    padding-bottom:0%;
+    padding:5%;
     display:block;
 }
 
