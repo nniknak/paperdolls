@@ -18,7 +18,7 @@ input[type=button]{
   background-color: #04AA6D; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -43,6 +43,7 @@ input[type=button]{
     width: 150px;
     height: 380px;
     display:block;
+    margin-left:515px;
 }
 
 #background{
