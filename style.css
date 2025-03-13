@@ -1,5 +1,6 @@
 body{
     font-family: "Smythe", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#a2783b;
 }
 
 h1{
@@ -53,7 +54,7 @@ input[type="button"]{
     width:auto;
     height:50px;
     margin:auto;
-    padding:5px;
+    padding:10px;
     display:block;
     background-blend-mode: screen;
     background-color:antiquewhite;
@@ -77,9 +78,10 @@ input[type="button"]{
     width: 450px;
     height: 380px;
     display: block;
+    margin-top: 75px;
     margin-left: 50px;
     margin-right:150px;
-    margin-bottom:50px;
+    margin-bottom:25px;
 }
 
 #man{       
