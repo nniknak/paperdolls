@@ -15,7 +15,7 @@ input[type=button]{
 */
 
 .button {
-  background-color: #04AA6D; /* Green */
+  background-color: #E35336; /* terracotta */
   border: none;
   color: white;
   padding: 5px 10px;
@@ -42,7 +42,7 @@ input[type=button]{
 #logo{
     background-image:url(logo.png);
     width:auto;
-    height:fit-content;
+    height:50px;
     margin:auto;
 }
 #sidemenu{
