@@ -7,12 +7,12 @@ h1{
     text-align: center;
 }
 
-/*
-input[type=button]{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: aliceblue;
+
+input[type="button"]{
+    font-family: "Smythe", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: bisque;
+    color:#E35336;
 }
-*/
 
 .smythe-regular {
     font-family: "Smythe", system-ui;
@@ -20,10 +20,11 @@ input[type=button]{
     font-style: normal;
   }
 
+/*
 .button {
-  background-color: #E35336; /* terracotta */
+  background-color: #E35336; /* terracotta 
   border: antiquewhite;
-  color: #a2783b; /* vintage gold */
+  color: #a2783b; /* vintage gold 
   padding: 5px 10px;
   text-align: center;
   display: inline-block;
@@ -31,6 +32,7 @@ input[type=button]{
   font:"Smythe", system-ui;
   margin:auto;
 }
+*/
 
 .controls{
     margin:auto;
@@ -49,7 +51,7 @@ input[type=button]{
     width:auto;
     height:50px;
     margin:auto;
-    padding:0px;
+    padding:5px;
     display:block;
     background-blend-mode: screen;
     background-color:antiquewhite;
