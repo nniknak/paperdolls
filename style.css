@@ -39,6 +39,10 @@ input[type=button]{
     background-color: aliceblue;
 }
 
+#logo{
+    background-image:url(logo.png);
+    margin:auto;
+}
 #sidemenu{
     position: absolute;
     width: 150px;
