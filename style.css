@@ -13,7 +13,7 @@ h1{
 input[type="button"]{
     font-family: "Smythe", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: bisque;
-    color:#a2783b;
+    color:#black;
     font-size: 25px;
     margin:auto;
 }
@@ -53,23 +53,14 @@ input[type="button"]{
 }
 
 #logo{
-    width:auto;
-    height:45px;
+    height:110px;
     margin-left:auto;
     margin-right:auto;
-    background-blend-mode: screen;
-    background-color:antiquewhite;
+    margin-top:10px;
+    margin-bottom:10px;
+    display:block;
 }
 
-#sidemenu{
-    position: absolute;
-    width: 150px;
-    height: 380px;
-    display:inline-block;
-    margin-left:500px;
-    margin-top: 50px;
-    background-color:none;
-}
 
 #background{
     position: absolute;
@@ -77,11 +68,24 @@ input[type="button"]{
     background-size: 100% auto;
     width: 450px;
     height: 380px;
-    display: block;
-    margin-top: 10px;
-    margin-left: 50px;
+    display: inline-block;
+    margin-left: 25px;
     margin-right:150px;
     margin-bottom:25px;
+    margin-top: 50px;
+}
+
+#sidemenu{
+    width: 115px;
+    height: 280px;
+    margin-left:500px;
+    margin-top:50px;
+    display:inline-block;
+    border:#a2783b;
+    padding-top:100px;
+    padding-bottom:0px;
+    text-align: center;
+    color:black;
 }
 
 #man{       

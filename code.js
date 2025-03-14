@@ -100,6 +100,6 @@ let state = {
 
     state.background = 0;
     document.getElementById("background").style.backgroundImage = blankurl;
-    document.getElementById("background").style.background = lightgrey;  
+    document.getElementById("background").style.background = "white";  
   }
 
