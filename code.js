@@ -103,3 +103,8 @@ let state = {
     document.getElementById("background").style.background = "white";  
   }
 
+  function playMusic(){
+    var audio = new Audio('victor.mp3')
+    audio.play();
+  }
+
