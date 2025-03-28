@@ -156,8 +156,8 @@ let state = {
     console.log(dresspic.src)
     ctx.drawImage(hatpic,0,0,450, 380);
 
-    const bitmapExport = canvas.transferToImageBitmap();
-    exportcanvas.transferFromImageBitmap(bitmapExport);
+    /*const bitmapExport = canvas.transferToImageBitmap();
+    exportcanvas.transferFromImageBitmap(bitmapExport);*/
 
     /*canvas.toBlob(function(blob) {
       saveAs(blob, "pretty-image.png");
