@@ -12,6 +12,8 @@ let state = {
     background: 0,
   };
 
+  let musicplay = false;
+
   let blankurl = `url(hats/blank.png)`
 
   function nextDress() {
@@ -103,8 +105,10 @@ let state = {
     document.getElementById("background").style.background = "white";  
   }
 
-  function playMusic(){
-    var audio = new Audio('victor.mp3')
-    audio.play();
+
+  var myAudio = new Audio("victor.mp3");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
   }
 
