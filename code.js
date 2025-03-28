@@ -9,12 +9,13 @@ function getRandomRgb() {
 let state = {
     dress: 0,
     hat: 0,
-    background: 0,
+    background: "transparent",
+    bgvalue: ""
   };
 
   let musicplay = false;
 
-  let blankurl = `url(hats/blank.png)`
+  let blankurl = `url(hats/hat0.png)`
 
   function nextDress() {
     if (state.dress < 39) {
@@ -78,6 +79,8 @@ let state = {
   function nextBackground() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
     let rgbValue = "#" + randomColor;
+    state.background = "color";
+    state.bgvalue = rgbValue;
     document.getElementById("background").style.background = rgbValue;
   }
 
@@ -88,6 +91,8 @@ let state = {
     const random = Math.floor(Math.random() * fileList.length)
     const urlstring = fileList[random];
     let bgurl = `url(${urlstring})`;
+    state.background = "scene";
+    state.bgvalue = `url(${urlstring})`;
     document.getElementById("background").style.backgroundSize = "contain";
     document.getElementById("background").style.backgroundImage = bgurl;
   }
@@ -112,3 +117,41 @@ let state = {
     return myAudio.paused ? myAudio.play() : myAudio.pause();
   }
 
+  function saveDoll(){
+    let mannequin = new Image(450, 380);
+    mannequin.src = "dresses/doll0.png";
+    let dresspic = new Image(450, 380);
+    dresspic.src = `dresses/doll${state.dress}.png`;
+    let hatpic = new Image(450,380);
+    hatpic.src = `hats/hat${state.hat}.png`;
+    
+    let backgroundpic = new Image(450,380);
+
+    const canvas = new OffscreenCanvas(450,380);
+    const ctx = canvas.getContext("webgl");
+    
+
+    if (state.background == "transparent"){
+      ctx.fillStyle = "white";
+      ctx.fillRect(0,0,450,380);
+
+    }
+    else if (state.background == "color"){
+      ctx.fillStyle = state.bgvalue;
+      ctx.fillRect(0,0,450,380);
+    }
+    else if (state.background == "scene"){
+      let backgroundurl = state.bgvalue;
+    }
+    else{
+      ctx.fillStyle = "white";
+      ctx.fillRect(0,0,450,380);
+    }
+
+
+    canvas.toBlob(function(blob) {
+      saveAs(blob, "pretty-image.png");
+    });
+
+
+  }
