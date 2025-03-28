@@ -92,7 +92,7 @@ let state = {
     const urlstring = fileList[random];
     let bgurl = `url(${urlstring})`;
     state.background = "scene";
-    state.bgvalue = `url(${urlstring})`;
+    state.bgvalue = urlstring;
     document.getElementById("background").style.backgroundSize = "contain";
     document.getElementById("background").style.backgroundImage = bgurl;
   }
@@ -122,36 +122,46 @@ let state = {
     mannequin.src = "dresses/doll0.png";
     let dresspic = new Image(450, 380);
     dresspic.src = `dresses/doll${state.dress}.png`;
-    let hatpic = new Image(450,380);
+    let hatpic = new Image(450, 380);
     hatpic.src = `hats/hat${state.hat}.png`;
     
-    let backgroundpic = new Image(450,380);
+    const exportcanvas = document.getElementById("export").getContext("bitmaprenderer");
 
-    const canvas = new OffscreenCanvas(450,380);
-    const ctx = canvas.getContext("webgl");
+    const canvas = new OffscreenCanvas(450, 380);
+    const ctx = canvas.getContext("2d");
     
 
     if (state.background == "transparent"){
       ctx.fillStyle = "white";
-      ctx.fillRect(0,0,450,380);
+      ctx.fillRect(0,0,450, 380);
 
     }
     else if (state.background == "color"){
       ctx.fillStyle = state.bgvalue;
-      ctx.fillRect(0,0,450,380);
+      ctx.fillRect(0,0,450, 380);
     }
     else if (state.background == "scene"){
       let backgroundurl = state.bgvalue;
+      let backgroundpic = new Image(450, 380);
+      backgroundpic.src = backgroundurl;
+      ctx.drawImage(backgroundpic,0,0,450, 380)
     }
     else{
       ctx.fillStyle = "white";
-      ctx.fillRect(0,0,450,380);
+      ctx.fillRect(0,0,450, 380);
     }
 
+    ctx.drawImage(mannequin,0,0,450, 380);
+    ctx.drawImage(dresspic,0,0,450, 380);
+    console.log(dresspic.src)
+    ctx.drawImage(hatpic,0,0,450, 380);
 
-    canvas.toBlob(function(blob) {
+    const bitmapExport = canvas.transferToImageBitmap();
+    exportcanvas.transferFromImageBitmap(bitmapExport);
+
+    /*canvas.toBlob(function(blob) {
       saveAs(blob, "pretty-image.png");
-    });
+    });*/
 
 
   }
