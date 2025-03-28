@@ -51,6 +51,14 @@ input[type="button"]{
     margin-top:15px;
     background-color: bisque;
     border-radius:30px;
+    float:left;
+}
+
+#print-button{
+    margin-top:15px;
+    background-color: bisque;
+    border-radius:30px;
+    float:right;
 }
 
 #container{
