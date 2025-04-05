@@ -117,17 +117,6 @@ let state = {
     return myAudio.paused ? myAudio.play() : myAudio.pause();
   }
 
-  function loadImage(src, callback) {
-    var img = new Image();
-
-    img.onload = callback;
-    img.setAttribute('crossorigin', 'anonymous'); // works for me
-
-    img.src = src;
-
-    return img;
-}
-
   function saveDoll(){
     let mannequin = new Image(450, 380);
     mannequin.setAttribute('crossorigin', 'anonymous');
