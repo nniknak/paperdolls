@@ -167,6 +167,12 @@ let state = {
     });*/
     canvas.convertToBlob().then((blob) => console.log(blob));
 
-    canvas.toDataURL();
+    let canvasURL = canvas.toDataURL();
+    console.log(canvasURL);
 
+    const createEl = document.createElement('a');
+    createEl.href = canvasUrl;
+    createEl.download = "my-doll";
+    createEl.click();
+    createEl.remove();
   }
