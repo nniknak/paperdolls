@@ -117,12 +117,26 @@ let state = {
     return myAudio.paused ? myAudio.play() : myAudio.pause();
   }
 
+  function loadImage(src, callback) {
+    var img = new Image();
+
+    img.onload = callback;
+    img.setAttribute('crossorigin', 'anonymous'); // works for me
+
+    img.src = src;
+
+    return img;
+}
+
   function saveDoll(){
     let mannequin = new Image(450, 380);
+    mannequin.setAttribute('crossorigin', 'anonymous');
     mannequin.src = "dresses/doll0.png";
     let dresspic = new Image(450, 380);
+    dresspic.setAttribute('crossorigin', 'anonymous');
     dresspic.src = `dresses/doll${state.dress}.png`;
     let hatpic = new Image(450, 380);
+    hatpic.setAttribute('crossorigin', 'anonymous');
     hatpic.src = `hats/hat${state.hat}.png`;
     
     const exportcanvas = document.getElementById("export").getContext("bitmaprenderer");
@@ -162,6 +176,6 @@ let state = {
     /*canvas.toBlob(function(blob) {
       saveAs(blob, "pretty-image.png");
     });*/
-
+    canvas.convertToBlob().then((blob) => console.log(blob));
 
   }
