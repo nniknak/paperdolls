@@ -167,4 +167,6 @@ let state = {
     });*/
     canvas.convertToBlob().then((blob) => console.log(blob));
 
+    canvas.toDataURL();
+
   }
