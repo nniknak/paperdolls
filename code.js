@@ -171,5 +171,6 @@ let state = {
     var dressBlob = canvas.convertToBlob();
     console.log(dressBlob);
 
-
+    var blobURL = URL.createObjectURL(dressBlob);
+    window.open(blobURL);
   }
