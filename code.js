@@ -164,15 +164,12 @@ let state = {
 
     /*canvas.toBlob(function(blob) {
       saveAs(blob, "pretty-image.png");
-    });*/
-    canvas.convertToBlob().then((blob) => console.log(blob));
+    });
+    
+  */
 
-    let canvasURL = canvas.toDataURL();
-    console.log(canvasURL);
+    var dressBlob = canvas.convertToBlob();
+    console.log(dressBlob);
 
-    const createEl = document.createElement('a');
-    createEl.href = canvasUrl;
-    createEl.download = "my-doll";
-    createEl.click();
-    createEl.remove();
+
   }
