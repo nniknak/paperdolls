@@ -191,17 +191,22 @@ let state = {
     
   */
 
-  
-    var dressBlob = canvas.convertToBlob();
+    // maybe there needs to be an onclick function
+    
+    const dressBlob = new Promise(resolve => canvas.toBlob(resolve));
     if (window.navigator.msSaveOrOpenBlob) /* IE10+ */ { 
-      window.navigator.msSaveOrOpenBlob(file, filename);
+      window.navigator.msSaveOrOpenBlob(dressBlob, "image.png");
     } else {
       const objectURL = URL.createObjectURL(dressBlob);
       var a = document.createElement("a");
       a.href = objectURL;
       console.log(a);
       a.download = "myDress.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
+    
 
 /*
   function download(data, filename, type) {
