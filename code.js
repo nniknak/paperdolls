@@ -193,7 +193,8 @@ let state = {
 
     // maybe there needs to be an onclick function
     
-    const dressBlob = new Promise(resolve => canvas.toBlob(resolve));
+    console.log(canvas); // just to be sure this exists
+    const dressBlob = new Promise(resolve => canvas.convertToBlob(resolve));
     console.log(dressBlob);
     if (window.navigator.msSaveOrOpenBlob) /* IE10+ */ { 
       window.navigator.msSaveOrOpenBlob(dressBlob, "image.png"); // i have no idea if this works because i dont have ie
