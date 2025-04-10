@@ -1,3 +1,5 @@
+
+
 function getRandomRgb() {
   var num = Math.round(0xffffff * Math.random());
   var r = num >> 16;
@@ -117,6 +119,7 @@ let state = {
     return myAudio.paused ? myAudio.play() : myAudio.pause();
   }
 
+  
   // Function to download data to a file
   function download(data, filename, type) {
     var file = new Blob([data], {type: type});
@@ -125,6 +128,7 @@ let state = {
     else { // Others
         var a = document.createElement("a"),
                 url = URL.createObjectURL(file);
+                console.log(url);
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
@@ -147,7 +151,7 @@ let state = {
     hatpic.setAttribute('crossorigin', 'anonymous');
     hatpic.src = `hats/hat${state.hat}.png`;
     
-    const exportcanvas = document.getElementById("export").getContext("bitmaprenderer");
+    // const exportcanvas = document.getElementById("export").getContext("bitmaprenderer");
 
     const canvas = new OffscreenCanvas(450, 380);
     const ctx = canvas.getContext("2d");
@@ -189,6 +193,21 @@ let state = {
 
     var dressBlob = canvas.convertToBlob();
     console.log(dressBlob);
+    saveAs(dressBlob, "dress.png")
 
-    download(dressBlob, "myDoll.png", "png");
+    
+    const blobToImage = (dressBlob) => {
+      return new Promise(resolve => {
+        const url = URL.createObjectURL(dressBlob)
+        let img = new Image()
+        img.onload = () => {
+          URL.revokeObjectURL(url)
+          resolve(img)
+        }
+        img.src = url
+      })
+    }
+
+    download(blobToImage, "myDoll.png", "png");
+  
   }
