@@ -193,21 +193,32 @@ let state = {
 
   
     var dressBlob = canvas.convertToBlob();
-    console.log(dressBlob);
-    
-    const blobToImage = (dressBlob) => {
-      return new Promise(resolve => {
-        const url = URL.createObjectURL(dressBlob)
-        let img = new Image()
-        img.onload = () => {
-          URL.revokeObjectURL(url)
-          resolve(img)
-        }
-        img.src = url
-      })
+    if (window.navigator.msSaveOrOpenBlob) /* IE10+ */ { 
+      window.navigator.msSaveOrOpenBlob(file, filename);
+    } else {
+      const objectURL = URL.createObjectURL(dressBlob);
+      var a = document.createElement("a");
+      a.href = objectURL;
+      console.log(a);
+      a.download = "myDress.png";
     }
 
-    console.log(blobToImage);
-    download(blobToImage, "myDoll.png", "png");
-  
+/*
+  function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+                console.log("show me " + url);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0);
+    } */
   }
