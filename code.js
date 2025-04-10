@@ -128,7 +128,7 @@ let state = {
     else { // Others
         var a = document.createElement("a"),
                 url = URL.createObjectURL(file);
-                console.log(url);
+                console.log("show me " + url);
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
@@ -191,10 +191,9 @@ let state = {
     
   */
 
+  
     var dressBlob = canvas.convertToBlob();
     console.log(dressBlob);
-    saveAs(dressBlob, "dress.png")
-
     
     const blobToImage = (dressBlob) => {
       return new Promise(resolve => {
@@ -208,6 +207,7 @@ let state = {
       })
     }
 
+    console.log(blobToImage);
     download(blobToImage, "myDoll.png", "png");
   
   }
