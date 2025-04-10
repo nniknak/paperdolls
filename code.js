@@ -194,8 +194,9 @@ let state = {
     // maybe there needs to be an onclick function
     
     const dressBlob = new Promise(resolve => canvas.toBlob(resolve));
+    console.log(dressBlob);
     if (window.navigator.msSaveOrOpenBlob) /* IE10+ */ { 
-      window.navigator.msSaveOrOpenBlob(dressBlob, "image.png");
+      window.navigator.msSaveOrOpenBlob(dressBlob, "image.png"); // i have no idea if this works because i dont have ie
     } else {
       const objectURL = URL.createObjectURL(dressBlob);
       var a = document.createElement("a");
