@@ -140,7 +140,7 @@ let state = {
     }
   }
 
-  async function saveDoll(){
+  function saveDoll(){
     let mannequin = new Image(450, 380);
     mannequin.setAttribute('crossorigin', 'anonymous');
     mannequin.src = "dresses/doll0.png";
@@ -194,7 +194,7 @@ let state = {
     // maybe there needs to be an onclick function
     
     console.log(canvas); // just to be sure this exists
-    const dressBlob = await new Promise(resolve => canvas.convertToBlob(resolve));
+    const dressBlob = new Promise(resolve => canvas.convertToBlob(resolve));
     console.log(dressBlob);
     if (window.navigator.msSaveOrOpenBlob) /* IE10+ */ { 
       window.navigator.msSaveOrOpenBlob(dressBlob, "image.png"); // i have no idea if this works because i dont have ie
@@ -207,6 +207,7 @@ let state = {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      console.log("made it to else statement in attempting to download")
     }
     
 
