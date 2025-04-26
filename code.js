@@ -179,19 +179,7 @@ let state = {
 
     ctx.drawImage(mannequin,0,0,450, 380);
     ctx.drawImage(dresspic,0,0,450, 380);
-    console.log(dresspic.src)
     ctx.drawImage(hatpic,0,0,450, 380);
-
-    /*const bitmapExport = canvas.transferToImageBitmap();
-    exportcanvas.transferFromImageBitmap(bitmapExport);*/
-
-    /*canvas.toBlob(function(blob) {
-      saveAs(blob, "pretty-image.png");
-    });
-    
-  */
-
-    // maybe there needs to be an onclick function
     
     canvas.convertToBlob().then(dressBlob => {
       return dressBlob}).then((dressBlob) => {
@@ -205,26 +193,8 @@ let state = {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+        console.log(dresspic.src);
+        console.log(hatpic.src);
       }
     });
-    
-
-/*
-  function download(data, filename, type) {
-    var file = new Blob([data], {type: type});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, filename);
-    else { // Others
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-                console.log("show me " + url);
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);  
-        }, 0);
-    } */
   }
