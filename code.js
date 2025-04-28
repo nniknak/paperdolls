@@ -180,21 +180,30 @@ let state = {
     ctx.drawImage(mannequin,0,0,450, 380);
     ctx.drawImage(dresspic,0,0,450, 380);
     ctx.drawImage(hatpic,0,0,450, 380);
-    
-    canvas.convertToBlob().then(dressBlob => {
-      return dressBlob}).then((dressBlob) => {
+    --
+    // First: transfer your canvas into an ImageBitmap
+    new bmp;
+    bmp = ctx.transferToImageBitmap();
+
+    // Get a bitmaprenderer context
+    const bmpctx = outputCanvas.getContext('bitmaprenderer');
+
+    // Transfer the ImageBitmap into the new canvas
+    bmpctx.transferFromImageBitmap(bmp);
+
+    // --- Now offer download functionality ---
+    outputCanvas.toBlob((blob) => {
       if (window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(dressBlob, "image.png");
+        window.navigator.msSaveOrOpenBlob(blob, "image.png");
       } else {
-        const objectURL = URL.createObjectURL(dressBlob);
-        var a = document.createElement("a");
+        const objectURL = URL.createObjectURL(blob);
+        const a = document.createElement("a");
         a.href = objectURL;
         a.download = "myDress.png";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        console.log(dresspic.src);
-        console.log(hatpic.src);
+        URL.revokeObjectURL(objectURL); // Release memory
       }
-    });
+    }, 'image/png'); // MIME type
   }
