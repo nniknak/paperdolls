@@ -155,46 +155,66 @@ let state = {
 
     const canvas = new OffscreenCanvas(450, 380);
     const ctx = canvas.getContext("2d");
-    
 
-    if (state.background == "transparent"){
-      ctx.fillStyle = "white";
-      ctx.fillRect(0,0,450, 380);
-
-    }
-    else if (state.background == "color"){
-      ctx.fillStyle = state.bgvalue;
-      ctx.fillRect(0,0,450, 380);
-    }
-    else if (state.background == "scene"){
-      let backgroundurl = state.bgvalue;
-      let backgroundpic = new Image(450, 380);
-      backgroundpic.src = backgroundurl;
-      ctx.drawImage(backgroundpic,0,0,450, 380)
-    }
-    else{
-      ctx.fillStyle = "white";
-      ctx.fillRect(0,0,450, 380);
+    function loadImage(image) {
+        return new Promise((resolve, reject) => {
+            image.onload = () => resolve(image);
+            image.onerror = reject;
+        });
     }
 
-    ctx.drawImage(mannequin,0,0,450, 380);
-    ctx.drawImage(dresspic,0,0,450, 380);
-    ctx.drawImage(hatpic,0,0,450, 380);
-    
-    canvas.convertToBlob().then(dressBlob => {
-      return dressBlob}).then((dressBlob) => {
-      if (window.navigator.msSaveOrOpenBlob) {
-        window.navigator.msSaveOrOpenBlob(dressBlob, "image.png");
-      } else {
-        const objectURL = URL.createObjectURL(dressBlob);
-        var a = document.createElement("a");
-        a.href = objectURL;
-        a.download = "myDress.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        console.log(dresspic.src);
-        console.log(hatpic.src);
+    let imagesToLoad = [
+        loadImage(mannequin),
+        loadImage(dresspic),
+        loadImage(hatpic),
+    ];
+
+    let backgroundPromise;
+    if (state.background == "scene"){
+        let backgroundurl = state.bgvalue;
+        let backgroundpic = new Image(450, 380);
+        backgroundpic.src = backgroundurl;
+        backgroundPromise = loadImage(backgroundpic);
+        imagesToLoad.push(backgroundPromise);
+    }
+
+    Promise.all(imagesToLoad).then((images) => {
+      if (state.background == "transparent"){
+        ctx.fillStyle = "white";
+        ctx.fillRect(0,0,450, 380);
       }
+      else if (state.background == "color"){
+        ctx.fillStyle = state.bgvalue;
+        ctx.fillRect(0,0,450, 380);
+      }
+      else if (state.background == "scene"){
+        let backgroundpic = images.pop(); //since it was pushed last, it should be the last element
+        ctx.drawImage(backgroundpic,0,0,450, 380)
+      }
+      else{
+        ctx.fillStyle = "white";
+        ctx.fillRect(0,0,450, 380);
+      }
+
+      ctx.drawImage(mannequin,0,0,450, 380);
+      ctx.drawImage(dresspic,0,0,450, 380);
+      ctx.drawImage(hatpic,0,0,450, 380);
+      
+      canvas.convertToBlob().then(dressBlob => {
+        return dressBlob}).then((dressBlob) => {
+        if (window.navigator.msSaveOrOpenBlob) {
+          window.navigator.msSaveOrOpenBlob(dressBlob, "image.png");
+        } else {
+          const objectURL = URL.createObjectURL(dressBlob);
+          var a = document.createElement("a");
+          a.href = objectURL;
+          a.download = "myDress.png";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          console.log(dresspic.src);
+          console.log(hatpic.src);
+        }
+      });
     });
   }
